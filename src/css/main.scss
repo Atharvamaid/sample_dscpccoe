@@ -13,7 +13,9 @@
       10px 10px 10px -11px 
       rgba(0,0,0,0.3);
     cursor: pointer;
-    
+    .footer{
+      overflow-x: hidden !important;
+    }
     p{
       display: none;
     }
@@ -122,6 +124,7 @@
       font-size: 35px;
     }
   }
+  
   @media (max-width : 1295px){
     .typewriter h1{
       font-size: 30px;
@@ -130,6 +133,44 @@
   @media (max-width : 1100px){
     .typewriter h1{
       font-size: 27px;
+    }
+  }
+  @media (max-width : 500px){
+    .typewriter h1{
+      font-size: 23px;
+    }
+  }
+  @media (max-width : 500px){
+    .developer-logo img{
+      max-width: 80%;
+    }
+  }
+  .header-text p{
+    font-size: 20px;
+  }
+  .header-text h4{
+    font-size: 22px;
+  }
+  @media (max-width : 400px){
+    .typewriter h1{
+      font-size: 22px;
+    }
+    .header-text h4{
+      font-size: 17px;
+    }
+    .header-text p{
+      font-size: 15px;
+    }
+  }
+  @media (max-width : 384px){
+    .typewriter h1{
+      font-size: 20px;
+    }
+    .header-text h4{
+      font-size: 14px;
+    }
+    .header-text p{
+      font-size: 13px;
     }
   }
 
@@ -152,6 +193,23 @@
       font-size: 20px;
     }
   }
+  @media (max-width : 380px){
+    .menu-toggle{
+      position: absolute;
+    right: 5px;
+    
+    z-index: 2000;
+    margin-top: 0.7em;
+    
+      height: 3.1em;
+      width: 3.1em;
+      border-radius: 50%;
+    background-color:#6c757d;
+    border: 1px solid black;
+    outline: none;
+    cursor: pointer;
+    }
+   }
   .menu-toggle :hover{
     background-color: #353535;
   }
