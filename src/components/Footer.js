@@ -1,5 +1,6 @@
 import React from 'react';
 import Img from '../assets/logos/dscpccoe.png';
+
 const Footer = ()=>{
     return(
         
