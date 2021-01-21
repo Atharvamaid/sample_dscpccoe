@@ -157,7 +157,7 @@ class Navbar extends React.Component {
             animateButtons = {this.animateButtons}
           />
         
-          <div className="logo-image pl-5 pt-1 text-secondary" style={{display:"flex", flexDirection:"row"}}>
+          <div className="logo-image pl-4 pt-1 text-secondary" style={{display:"flex", flexDirection:"row"}}>
           <Link to="/" style={{textDecoration:"none"}}><img src={Image} className="mt-2" style={{maxWidth:"220px"}} alt="img"/></Link>
           <div className="mx-3 mt-4 ">
           

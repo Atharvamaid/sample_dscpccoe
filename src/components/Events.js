@@ -1,4 +1,4 @@
-import React , {useState , useEffect , useRef , Fragment} from 'react'
+import React , {useState , useEffect , useRef } from 'react'
 import Tilt from 'react-tilt'
 // import eventsJSONData from '../assets/eventsData'
 import Button from '@material-ui/core/Button';
@@ -80,13 +80,13 @@ function EventCard({
 
     
     const redirectbutton = (url) =>{
-        if(url != '' || url != null){
+        if(url !== '' || url !== null){
             window.open(url , '_blank')
         }
     }
  
     const handlenav = (direction , navref) =>{
-        if(direction == 'left'){
+        if(direction === 'left'){
             navref.current.scrollLeft -= 200
         }
         else{
@@ -95,7 +95,7 @@ function EventCard({
     }
 
     return(
-        Object.keys(eventsData).length != 0 ?
+        Object.keys(eventsData).length !== 0 ?
         <div className = 'events-scroll-container'>
             {scrollbutton(eventsData) && <IconButton className = 'events-scroll-button left-button' onClick = {()=>handlenav('left' , navref)} ><i class="fa fa-chevron-left" aria-hidden="true"></i></IconButton>}
             <div className = "events-container" ref = {navref}>
@@ -104,15 +104,15 @@ function EventCard({
                         return(
                             <div key = {event}>
                                 <Tilt className="Tilt event-tilt-card" onMouseLeave = {()=>{settiltdata(0,0 , event)}} onMouseMove = {(e) => mouseMove(e , event)} options={{reverse : false, max : constMax , speed : 5000 , scale : 1 }} style= {{height : past ? constPastHeight : constHeight , width : constWidth }}>
-                                        {eventsData[event].youtube == false ? 
+                                        {eventsData[event].youtube === false ? 
                                             <div className = 'event-card-bg' style = {{backgroundImage : `url(${eventsData[event].poster})` , transform : `translateX(${tiltData[event].tX}px) translateY(${tiltData[event].tY}px)` , height : `${constWidth * 9/16}px`}}></div>
                                             :<YouTubePlayer width = '100%' height = {`${constWidth * 9/16}px`} url = {eventsData[event].poster}/>}
                                         <div style = {{display :'flex' ,flexDirection : 'column' ,padding : '10px',color : 'black' , flex : '1'}}>
                                             <h6 style = {{flex : '1 0 0' , minHeight : '1.2rem' , overflow : 'hidden' , textOverflow : 'ellipsis'}}>{eventsData[event].name}</h6>
-                                            <div style = {{marginTop : 'auto' , flex : '0 0 0' , marginTop: 'auto'}}>
+                                            <div style = {{marginTop : 'auto' , flex : '0 0 0' }}>
                                             <div style = {{marginBottom : '5px'}}>
                                                 {
-                                                    eventsData[event].topicsCovered != 'undefined' && eventsData[event].topicsCovered.map((topic , index) =>{
+                                                    eventsData[event].topicsCovered !== 'undefined' && eventsData[event].topicsCovered.map((topic , index) =>{
                                                         return <div key = {topic} className = 'badge badge-pill' style = {{color : 'white' ,backgroundColor : `${colorArray[index%4]}` , marginLeft : '3px' , marginRight : '3px'}}>{topic}</div>
                                                     })
                                                 }

@@ -32,9 +32,9 @@ function Header(){
                     </FadeIn>
               </div>
               
-              <div className="col-lg-7" >
+              <div className="col-lg-7 pl-5" >
               <FadeIn delay="180">
-                <lottie-player className="mr-2 " src="https://assets8.lottiefiles.com/packages/lf20_atgjqorh.json"  background="transparent"  speed="1.5"  style={{maxWidth:"100%", height : 'auto'}}  loop  autoplay></lottie-player>
+                <lottie-player className=" " src="https://assets8.lottiefiles.com/packages/lf20_atgjqorh.json"  background="transparent"  speed="1.5"  style={{maxWidth:"100%", height : 'auto'}}  loop  autoplay></lottie-player>
               </FadeIn>
               </div>
             </div>
