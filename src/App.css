@@ -69,11 +69,21 @@
 
 /* connect us page  */
 
+.about-cards{
+  
+  padding-right: 40px !important;
+  padding-left: 40px !important;
+}
 
 
 @media (max-width : 400px){
   .logo-image img{
     max-width: 65%;
+  }
+  .about-cards{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    
   }
 }
 @media (max-width : 370px){

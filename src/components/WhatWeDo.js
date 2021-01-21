@@ -9,7 +9,7 @@ function WhatWeDo(props) {
       <div className="col-md-6 d-flex justify-content-center align-items-center">
       <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_7gtngjio.json"  background="transparent"  speed="1"  style={{maxWidth:"400px"}}  loop  autoplay></lottie-player>
       </div>
-      <div className="col-md-6 d-flex justify-content-center">
+      <div className="col-md-6 about-cards d-flex justify-content-center">
       <div className="card  mb-3" >
   <br></br>
   <i className="fas mx-auto fa-rocket ghost-blue fa-2x"></i>
@@ -27,7 +27,7 @@ function WhatWeDo(props) {
       <br/>
       <div className="row mb-5 mt-5 ml-3 mr-3">
      
-      <div className="col-md-6 d-flex justify-content-center">
+      <div className="col-md-6 about-cards d-flex justify-content-center">
       <div className="card  mb-3" >
   <br></br>
   <i class="fas fa-lightbulb ghost-green mx-auto fa-2x"></i>
@@ -54,7 +54,7 @@ function WhatWeDo(props) {
     
     
       </div>
-      <div className="col-md-6 d-flex  justify-content-center align-items-center">
+      <div className="col-md-6 about-cards  d-flex  justify-content-center align-items-center">
       <div className="card  mb-3" >
   <br></br>
   <i class="fas fa-users mx-auto ghost-red fa-2x"></i>
