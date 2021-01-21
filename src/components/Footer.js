@@ -8,7 +8,7 @@ const Footer = ()=>{
                     <div style={{display:"flex", justifyContent:"space-evenly", alignItems:"center"}}>
                         <div className="image" style={{display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
                             <img src={Img} alt="im" />
-                            <h6 className=" ml-2 "><i style={{fontSize:"14px"}} class="mt-3 far fa-copyright"></i> DSC PCCoE 2020</h6>
+                            <h6 className=" ml-2 "><i style={{fontSize:"14px", fontWeight:"normal"}} class="mt-3 far fa-copyright"></i> DSC PCCoE 2020</h6>
 
                             
                         </div>
