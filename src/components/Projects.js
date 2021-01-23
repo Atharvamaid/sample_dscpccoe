@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/projects.css'
 function Projects(props) {
     return(
-        <div className="blog">
+        <div className="blog ">
             <div className="blog-post">
                 <div className="blog-post_img">
                     <img src="https://source.unsplash.com/random"/>

@@ -10,7 +10,7 @@ function Connect() {
     return (
         <div className="about">
             <ReactPlayer className="about-video" style={{maxWidth:"100%"}} url='https://www.youtube.com/watch?v=kfDKxzQ_fRQ' />
-        <div className="inner-section ">
+        <div className="inner-section border">
             <h1>About Us</h1>
             <p className="text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 

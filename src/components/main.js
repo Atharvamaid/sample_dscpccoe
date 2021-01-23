@@ -91,9 +91,9 @@ export const BlogCardDemo = React.memo(function BlogCard() {
   
 
   return (
-    <div className="projects">
+    <div className="projects " style={{minHeight:"75vh", display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
     
-
+    <h1 className="text-center">Projects</h1>
     <Card className={cx(styles.root, shadowStyles.root)}>
       <CardMedia
         className={styles.media}

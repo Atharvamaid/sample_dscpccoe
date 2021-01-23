@@ -96,14 +96,14 @@ function EventCard({
 
     return(
         Object.keys(eventsData).length !== 0 ?
-        <div className = 'events-scroll-container'>
+        <div className = 'events-scroll-container ' >
             {scrollbutton(eventsData) && <IconButton className = 'events-scroll-button left-button' onClick = {()=>handlenav('left' , navref)} ><i class="fa fa-chevron-left" aria-hidden="true"></i></IconButton>}
             <div className = "events-container" ref = {navref}>
                 {
                     Object.keys(eventsData).map((event , index) =>{
                         return(
                             <div key = {event}>
-                                <Tilt className="Tilt event-tilt-card" onMouseLeave = {()=>{settiltdata(0,0 , event)}} onMouseMove = {(e) => mouseMove(e , event)} options={{reverse : false, max : constMax , speed : 5000 , scale : 1 }} style= {{height : past ? constPastHeight : constHeight , width : constWidth }}>
+                                <Tilt className="Tilt event-tilt-card mx-3" onMouseLeave = {()=>{settiltdata(0,0 , event)}} onMouseMove = {(e) => mouseMove(e , event)} options={{reverse : false, max : constMax , speed : 5000 , scale : 1 }} style= {{height : past ? constPastHeight : constHeight , width : constWidth }}>
                                         {eventsData[event].youtube === false ? 
                                             <div className = 'event-card-bg' style = {{backgroundImage : `url(${eventsData[event].poster})` , transform : `translateX(${tiltData[event].tX}px) translateY(${tiltData[event].tY}px)` , height : `${constWidth * 9/16}px`}}></div>
                                             :<YouTubePlayer width = '100%' height = {`${constWidth * 9/16}px`} url = {eventsData[event].poster}/>}
@@ -191,7 +191,7 @@ function Events(){
     }
 
     return(
-        <div style = {{display : 'flex' , flexDirection : 'column'}}>
+        <div  style = {{display : 'flex' , flexDirection : 'column', minHeight:"75vh"}}>
         <Tabs
             value = {currentTab}
             onChange = {TabChange}
