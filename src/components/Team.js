@@ -401,11 +401,11 @@ function Team() {
         </div>
        <div className=" container-fluid">
        <h3 className="text-center">Animation & Graphics</h3>
-        <div className="row justify-content-md-center">
+        <div className="row justify-content-md-center  align-items-center ">
           
         {AnimeTeam.map((member) =>(
-                <div className="col-md-12">
-                <Card name ={member.Name} position = {member.position} gitid={member.gitid} instid={member.instid} linkid={member.linkid} img = {member.img}/>
+                <div className="col-md-12 mx-auto d-flex justify-content-center">
+                <Card className="align-self-center" name ={member.Name} position = {member.position} gitid={member.gitid} instid={member.instid} linkid={member.linkid} img = {member.img}/>
                 </div>
                 )
             )}

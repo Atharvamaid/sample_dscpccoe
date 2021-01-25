@@ -61,6 +61,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
       borderRadius: spacing(2), // 16
       opacity: 0.5,
+      outline:"none"
     },
   },
   content: {
@@ -111,7 +112,7 @@ export const BlogCardDemo = React.memo(function BlogCard() {
           }
         />
         {/* <Button className={buttonStyles}>Read more</Button> */}
-          <Button  className={buttonStyles} color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Read more</Button>
+          <Button  className={buttonStyles} color="primary" onClick={toggle} style={{ marginBottom: '1rem', outline:"none" }}>Read more</Button>
           <Collapse isOpen={isOpen}>
             <Card>
               <CardBody >

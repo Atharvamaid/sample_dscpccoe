@@ -103,7 +103,7 @@ function EventCard({
                     Object.keys(eventsData).map((event , index) =>{
                         return(
                             <div key = {event}>
-                                <Tilt className="Tilt event-tilt-card mx-3" onMouseLeave = {()=>{settiltdata(0,0 , event)}} onMouseMove = {(e) => mouseMove(e , event)} options={{reverse : false, max : constMax , speed : 5000 , scale : 1 }} style= {{height : past ? constPastHeight : constHeight , width : constWidth }}>
+                                <Tilt className="Tilt event-tilt-card m-5 " onMouseLeave = {()=>{settiltdata(0,0 , event)}} onMouseMove = {(e) => mouseMove(e , event)} options={{reverse : false, max : constMax , speed : 5000 , scale : 1 }} style= {{height : past ? constPastHeight : constHeight , width : constWidth }}>
                                         {eventsData[event].youtube === false ? 
                                             <div className = 'event-card-bg' style = {{backgroundImage : `url(${eventsData[event].poster})` , transform : `translateX(${tiltData[event].tX}px) translateY(${tiltData[event].tY}px)` , height : `${constWidth * 9/16}px`}}></div>
                                             :<YouTubePlayer width = '100%' height = {`${constWidth * 9/16}px`} url = {eventsData[event].poster}/>}
