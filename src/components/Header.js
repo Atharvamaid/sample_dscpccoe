@@ -2,9 +2,12 @@ import React from 'react';
 import 'react-typewriting-effect/dist/index.css';
 import Img from '../assets/Capture.JPG';
 import FadeIn from 'react-fade-in';
+import {useState} from "react";
 
+ 
 
 function Header(){
+  
     return(
         <div>
             <div className="container-fluid  d-flex justify-content-center  mt-4" style={{minHeight:"70vh"}}>
@@ -26,6 +29,7 @@ function Header(){
                     </p>
                     <br/>
                     <div className="developer-logo" style={{display:"flex",alignItems:"center"}}>
+                    
                     <h4 className="mr-2 mt-1">Powered By</h4>
                     <a href="https://gdg.community.dev/" target="blank"><img alt = "img" src={Img}/></a>
                     </div>

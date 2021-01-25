@@ -1,6 +1,8 @@
 import React from 'react';
+
 import {Link} from 'react-router-dom';
 import Image from '../assets/logos/dsclogo.jpg';
+
 export const itemClick = (e) => {
     console.log("clicked");
     // var a = new Navbar();
@@ -137,6 +139,7 @@ class Navbar extends React.Component {
     }
   
     render() {
+      
       return (
         <div className="">
           
@@ -159,6 +162,7 @@ class Navbar extends React.Component {
         
           <div className="logo-image pl-4 pt-1 text-secondary" style={{display:"flex", flexDirection:"row"}}>
           <Link to="/" style={{textDecoration:"none"}}><img src={Image} className="mt-2" style={{maxWidth:"220px"}} alt="img"/></Link>
+          
           <div className="mx-3 mt-4 ">
           
           

@@ -6,22 +6,22 @@ import InstagramEmbed from 'react-instagram-embed';
 
 const posts =[
   {
-    url:'https://www.instagram.com/p/CEb1p9snVmT/?utm_source=ig_web_copy_link',
+    url:'https://www.instagram.com/p/CEb1p9snVmT/',
   },
   {
-    url:'https://www.instagram.com/p/CF94cxuhbaK/?utm_source=ig_web_copy_link',
+    url:'https://www.instagram.com/p/CF94cxuhbaK/',
   },
   {
-    url: 'https://www.instagram.com/p/CFt3sqYheFg/?utm_source=ig_web_copy_link'
+    url: 'https://www.instagram.com/p/CFt3sqYheFg/'
   },
   {
-    url:'https://www.instagram.com/tv/CJApHt_hnRe/?utm_source=ig_web_copy_link'
+    url:'https://www.instagram.com/tv/CJApHt_hnRe/'
   },
   {
-    url:'https://www.instagram.com/tv/CJDJpfjB_Cx/?utm_source=ig_web_copy_link'
+    url:'https://www.instagram.com/tv/CJDJpfjB_Cx/'
   },
   {
-    url:'https://www.instagram.com/tv/CJDJpfjB_Cx/?utm_source=ig_web_copy_link'
+    url:'https://www.instagram.com/p/CJFtLXpB32f/'
   }
 ]
 
