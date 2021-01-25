@@ -12,8 +12,8 @@ import Box from '@material-ui/core/Box';
 import '../css/style.css';
 
 const constWidth = Math.min(300 , window.innerWidth-70)
-const constHeight = constWidth * 9/16 + 230
-const constPastHeight = constWidth * 9/16 + 150
+const constHeight = constWidth * 9/16 + 330
+const constPastHeight = constWidth * 9/16 + 250
 const constMax = 25
 const colorArray = ['#176BEF' , '#FF3E30' , '#F7B529' , '#179C52']
 
@@ -46,7 +46,8 @@ function EventCard({
     navref,
     tiltData,
     setTiltData,
-    past
+    past,
+    loading
 }){
 
     const mouseMove = (event , eventid) =>{
@@ -66,9 +67,9 @@ function EventCard({
         setTiltData({...tiltData , [eventid] : {tX : tiltX , tY : tiltY}})
     }
 
-    const noEvents = () =>{
+    const noEvents = (loading) =>{
         return(
-            <div style = {{marginTop : '50px' , marginBottom : '50px' , textAlign : 'center' , color : 'grey'}}>no events</div>
+            <div style = {{marginTop : '50px' , marginBottom : '50px' , textAlign : 'center' , color : 'grey'}}>{loading ? 'loading...' : 'no events'}</div>
         )
     }
 
@@ -95,7 +96,7 @@ function EventCard({
     }
 
     return(
-        Object.keys(eventsData).length !== 0 ?
+        Object.keys(eventsData).length !== 0 && !loading ?
         <div className = 'events-scroll-container ' >
             {scrollbutton(eventsData) && <IconButton className = 'events-scroll-button left-button' onClick = {()=>handlenav('left' , navref)} ><i class="fa fa-chevron-left" aria-hidden="true"></i></IconButton>}
             <div className = "events-container" ref = {navref}>
@@ -105,10 +106,11 @@ function EventCard({
                             <div key = {event}>
                                 <Tilt className="Tilt event-tilt-card m-5 " onMouseLeave = {()=>{settiltdata(0,0 , event)}} onMouseMove = {(e) => mouseMove(e , event)} options={{reverse : false, max : constMax , speed : 5000 , scale : 1 }} style= {{height : past ? constPastHeight : constHeight , width : constWidth }}>
                                         {eventsData[event].youtube === false ? 
-                                            <div className = 'event-card-bg' style = {{backgroundImage : `url(${eventsData[event].poster})` , transform : `translateX(${tiltData[event].tX}px) translateY(${tiltData[event].tY}px)` , height : `${constWidth * 9/16}px`}}></div>
+                                            <div className = 'event-card-bg' style = {{backgroundImage : `url(${eventsData[event].poster})` , transform : `translateX(${tiltData[event].tX}px) translateY(${tiltData[event].tY}px)` , height : `${constWidth * 9/16}px` , flexShrink : '0'}}></div>
                                             :<YouTubePlayer width = '100%' height = {`${constWidth * 9/16}px`} url = {eventsData[event].poster}/>}
-                                        <div style = {{display :'flex' ,flexDirection : 'column' ,padding : '10px',color : 'black' , flex : '1'}}>
-                                            <h6 style = {{flex : '1 0 0' , minHeight : '1.2rem' , overflow : 'hidden' , textOverflow : 'ellipsis'}}>{eventsData[event].name}</h6>
+                                        <div style = {{display :'flex' ,flexDirection : 'column' ,padding : '10px',color : 'black' , flex : '1' , height : past ? `${constPastHeight - constWidth * 9/16}px` : `${constHeight - constWidth * 9/16}px`}}>
+                                            <h6 style = {{flexShrink : 0 , maxHeight : '4.5rem', fontWeight : '500' , minHeight : '1.5rem' , fontSize : '1.2rem' , overflow : 'hidden' , textOverflow : 'ellipsis'}}>{eventsData[event].name}</h6>
+                                            <div className = 'description-body' style = {{color : '#6b6b6b' ,overflow : 'auto' , marginTop : '3px' , marginBottom : '10px'}}>{eventsData[event].description}</div>
                                             <div style = {{marginTop : 'auto' , flex : '0 0 0' }}>
                                             <div style = {{marginBottom : '5px'}}>
                                                 {
@@ -133,7 +135,7 @@ function EventCard({
             </div>
             {scrollbutton(eventsData) && <IconButton className = 'events-scroll-button right-button' onClick = {()=>handlenav('right' , navref)}><i class="fa fa-chevron-right" aria-hidden="true"></i></IconButton>}
         </div>
-        : noEvents()
+        : noEvents(loading)
     )
 }
   
@@ -148,12 +150,13 @@ function Events(){
     const comingnavref = useRef(null)
     const pastnavref = useRef(null)
     const [currentTab , setCurrentTab] = useState(0)
+    const [loading , setLoading] = useState(true)
     
 
     useEffect(() =>{
         fetch('https://raw.githubusercontent.com/dscpccoe/events/main/data.json')
-        .then(response => response.json()).catch(e => alert('something went wrong'))
-        .then(data => setEventsJSONData(data))
+        .then(response => response.json()).catch(e => {alert('something went wrong') ; setLoading(false)})
+        .then(data => {setEventsJSONData(data) ; setLoading(false)}).catch(e => {alert('something went wrong') ; setLoading(false)})
     },[])
 
     useEffect(()=>{
@@ -208,15 +211,15 @@ function Events(){
         </Tabs>
         {/* cards for live events */}
         <TabPanel value = {currentTab} index = {0}>
-            <EventCard eventsData = {eventsLiveData} setEventsData = {setEventsLiveData} navref = {livenavref} tiltData = {tiltData} setTiltData = {setTiltData} past = {false}/>
+            <EventCard eventsData = {eventsLiveData} setEventsData = {setEventsLiveData} navref = {livenavref} tiltData = {tiltData} setTiltData = {setTiltData} past = {false} loading = {loading}/>
         </TabPanel>
         {/* cards for upcoming events */}
         <TabPanel value = {currentTab} index = {1}>
-            <EventCard eventsData = {eventsComingData} setEventsData = {setEventsComingData} navref = {comingnavref} tiltData = {tiltData} setTiltData = {setTiltData} past = {false}/>
+            <EventCard eventsData = {eventsComingData} setEventsData = {setEventsComingData} navref = {comingnavref} tiltData = {tiltData} setTiltData = {setTiltData} past = {false} loading = {loading}/>
         </TabPanel>
         {/* cards for past events */}
         <TabPanel value = {currentTab} index = {2}>
-            <EventCard eventsData = {eventsPastData} setEventsData = {setEventsPastData} navref = {pastnavref} tiltData = {tiltData} setTiltData = {setTiltData} past = {true}/>
+            <EventCard eventsData = {eventsPastData} setEventsData = {setEventsPastData} navref = {pastnavref} tiltData = {tiltData} setTiltData = {setTiltData} past = {true} loading = {loading}/>
         </TabPanel> 
         </div>
     )
