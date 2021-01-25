@@ -293,7 +293,7 @@ function Card(props){
     return(
         <div>
        
-            <div className="container container-fluid " >
+            <div className="container mx-auto " >
             <div className="card">
                 <div className="content">
                     <div className="imgBx">
